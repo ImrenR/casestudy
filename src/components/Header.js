@@ -1,18 +1,20 @@
 import React from 'react'
 
-const Header = ({info,setInfo,statusOption,setStatusOption}) => {
+const Header = ({search,setSearch,statusOption,setStatusOption}) => {
   
   
-  const handleInputChange = (e)=> {
-    setInfo({...info, [e.target.id]:e.target.value})
+
+  const handleSubmit=(e)=> {
+    e.preventDefault()
+    setSearch("")
   }
   
   
-  
   return (
-    <div className='flex flex-column justify-content-between'>
+    <form onSubmit={handleSubmit}   className='flex flex-col md:flex-row justify-content-between items-center p-4 bg-white'>
       <input type="text"
-      onChange={handleInputChange}
+      value={search}
+      onChange={(e)=>setSearch(e.target.value)}
       />
 
       <div>
@@ -31,7 +33,7 @@ const Header = ({info,setInfo,statusOption,setStatusOption}) => {
          onClick={()=>setStatusOption('inactive')}
         >Inactive</button>
       </div>
-    </div>
+    </form>
   )
 }
 

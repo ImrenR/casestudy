@@ -8,11 +8,7 @@ import { useState } from "react";
 
 export default function Page() {
 
-const [info, setInfo] = useState({
-  email: "",
-  firstName: "",
-  lastName:""
-})
+const [search, setSearch] = useState("")
 const [statusOption, setStatusOption] = useState('All');
 
 
@@ -23,13 +19,12 @@ const filteredData = data.filter(a => {
 })
 
 .filter(user=>{
-  const fullName =
-  `${user.first_name}${user.last_name}`.toLowerCase()
-const email= user.email.toLowerCase();
-
+  const fullName =`${user.first_name ||' '}${user.last_name || ''}`.toLowerCase()
+   const email= user.email.toLowerCase();
+const searchText= search.toLowerCase()
 return(
-  fullName.includes(info.firstName.toLowerCase())
-  && email.includes(info.email.toLowerCase())
+  fullName.includes(searchText)
+ || email.includes(searchText)
 )
 
 })
@@ -38,8 +33,8 @@ return(
 
     <div>
       <Header
-      info={info}
-      setInfo={setInfo}
+      search={search}
+      setSearch={setSearch}
       statusOption={statusOption}
       setStatusOption={setStatusOption}
       />
