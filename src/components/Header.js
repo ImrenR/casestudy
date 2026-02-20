@@ -11,9 +11,9 @@ const Header = ({search,setSearch,statusOption,setStatusOption}) => {
   
   
   return (
-    <form onSubmit={handleSubmit}   className="hidden md:flex items-center justify-between p-4 bg-white">
+    <form onSubmit={handleSubmit}   className="hidden md:flex items-center justify-between ">
       <input type="text"
-      className='border'
+      className='border p-1 rounded-lg'
       value={search}
       placeholder='Search for Users...'
       onChange={(e)=>setSearch(e.target.value)}

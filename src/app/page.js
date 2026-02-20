@@ -31,7 +31,7 @@ return(
 
   return (
 
-    <div className="w-full flex flex-col items-center  p-4 gap-4">
+    <div className="w-full flex flex-col items-center p-4 gap-4">
      <div className="w-full max-w-6xl ">
      
       <Header

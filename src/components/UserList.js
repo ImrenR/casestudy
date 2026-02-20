@@ -31,7 +31,15 @@ const UserList = ({ data }) => {
               </td>
               <td className="py-2 px-4 border-b text-gray-600">{users.email}</td>
               <td className="py-2 px-4 border-b text-gray-600">{users.phone_number}</td>
-              <td className="py-2 px-4 border-b">{users.active ? "text-bg-green" : "text-bg-red"}</td>
+              <td className="py-2 px-4 border-b">
+                <span className={` py-1 text-sm font-medium rounded-lg border
+                  ${users.active
+                    ? "bg-green-100 text-green-800 border-green-400 px-2"
+                    :"bg-red-100 text-red-800 border-red-400 px-1"
+                  }`}>
+                  {users.active ? "Active" : "Inactive"}
+                </span>
+              </td>
               <td className="py-2 px-4 border-b">
                 <Link
                 className="border text-sm px-3 my-2 py-1 text-gray-500 rounded-md "
@@ -62,12 +70,13 @@ const UserList = ({ data }) => {
                
               </td>
 
-              <td className="py-2 px-3">
-                <span
-                className={`w-3 h-3 rounded-full d-inline-block accordion
-                  ${users.active ? "bg-green-500" : "bg-red-500"}`}
-                >
-
+              <td className="py-2 px-4 border-b">
+                <span className={`inline-block w-4 h-4 rounded-full
+                  ${users.active
+                    ? "bg-green-600 "
+                    :"bg-red-600 "
+                  }`}>
+                 
                 </span>
               </td>
               <td className="py-2 px-4 border-b">
