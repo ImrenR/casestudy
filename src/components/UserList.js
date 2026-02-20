@@ -33,9 +33,11 @@ const UserList = ({ data }) => {
               <td className="py-2 px-4 border-b text-gray-600">{users.phone_number}</td>
               <td className="py-2 px-4 border-b">{users.active ? "text-bg-green" : "text-bg-red"}</td>
               <td className="py-2 px-4 border-b">
-                <button
+                <Link
                 className="border text-sm px-3 my-2 py-1 text-gray-500 rounded-md "
-                >View</button>
+                href={`/user/${users.id}`}
+                // button has been replaced with Link to navigate details page
+                >View</Link>
               </td>
             </tr>
           ))}
@@ -69,9 +71,11 @@ const UserList = ({ data }) => {
                 </span>
               </td>
               <td className="py-2 px-4 border-b">
-                <button
+                <Link
                 className="border text-sm px-3 my-2 py-1 text-gray-500 rounded-md "
-                >View</button>
+                href={`/user/${users.id}`}
+                // button has been replaced with Link to navigate details page
+                >View</Link>
               </td>
             </tr>
           ))}
