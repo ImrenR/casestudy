@@ -22,7 +22,7 @@ const page = ({ params }) => {
   return (
     <div className="max-w-md mx-auto mt-8 p-3">
       <div className="mb-2">
-        <Link href="/" className="inline-block border rounded px-4 hover:bg-gray-300">
+        <Link href="/" className="inline-block border rounded px-4 text-sm bg-white text-gray-500 hover:bg-gray-300">
            Back to User List
         </Link>
       </div>
