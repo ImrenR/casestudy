@@ -1,12 +1,12 @@
 /** @type {import('tailwindcss').Config} */
-export default {
+module.exports = {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}", // if you dont have this you cant see the classes
+    "./app/**/*.{js,ts,jsx,tsx}",       // App Router sayfaları
+    "./pages/**/*.{js,ts,jsx,tsx}",     // Eğer pages dizini varsa
+    "./components/**/*.{js,ts,jsx,tsx}" // Componentler
   ],
   theme: {
     extend: {},
   },
   plugins: [],
 }
-
