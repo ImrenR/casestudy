@@ -54,6 +54,7 @@ const page = ({ params }) => {
             <span className="mx-8 font-thin text-gray-600 ">{user.email}</span>
           </p>
           <p>
+            Phone:
             <span>
               {user.phone_number}
             </span>
