@@ -1,4 +1,4 @@
-import Header from "@/components/Header";
+
 import "./globals.css";
 
 
@@ -12,7 +12,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="bg-gray-100">
-        <Header/> {/*  I want to see input and button in every pages */}
+        
         {children}
       </body>
     </html>

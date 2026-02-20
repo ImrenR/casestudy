@@ -61,7 +61,7 @@ const UserList = ({ data }) => {
                > {users.first_name+ " "+ users.last_name}</span>
                
               </td>
-              <td className="py-2 px-4 border-b text-gray-600">{users.email}</td>
+
               <td className="py-2 px-3">
                 <span
                 className={`w-3 h-3 rounded-full d-inline-block accordion
