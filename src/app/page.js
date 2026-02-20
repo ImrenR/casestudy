@@ -31,14 +31,17 @@ return(
 
   return (
 
-    <div>
+    <div className="w-full flex flex-col items-center  p-4 gap-4">
+     <div className="w-full max-w-6xl ">
+     
       <Header
       search={search}
       setSearch={setSearch}
       statusOption={statusOption}
       setStatusOption={setStatusOption}
       />
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      </div>
+    <div className="w-full max-w-6xl bg-white border rounded-lg shadow-md">
       
     
       <UserList data={filteredData}/> 

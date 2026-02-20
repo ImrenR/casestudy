@@ -11,13 +11,15 @@ const Header = ({search,setSearch,statusOption,setStatusOption}) => {
   
   
   return (
-    <form onSubmit={handleSubmit}   className='flex flex-col md:flex-row justify-content-between items-center p-4 bg-white'>
+    <form onSubmit={handleSubmit}   className="hidden md:flex items-center justify-between p-4 bg-white">
       <input type="text"
+      className='border'
       value={search}
+      placeholder='Search for Users...'
       onChange={(e)=>setSearch(e.target.value)}
       />
 
-      <div>
+      <div className='flex gap-2'>
         <button
         className={`px-3 py-1 rounded ${statusOption === "All" ? "bg-blue-500" : "bg-red-500"}`}
         onClick={()=>setStatusOption('All')}
@@ -34,6 +36,10 @@ const Header = ({search,setSearch,statusOption,setStatusOption}) => {
         >Inactive</button>
       </div>
     </form>
+
+
+
+
   )
 }
 

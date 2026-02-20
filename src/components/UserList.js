@@ -3,7 +3,7 @@ import React from "react";
 
 const UserList = ({ data }) => {
   return (
-    <div className="w-full overflow-x-auto m-8 rounded">
+    <div >
         {/* Desktop Table */}
       <table className="hidden md:table w-full min-w-full bg-white border-collapse shadow-md">
         <thead>
