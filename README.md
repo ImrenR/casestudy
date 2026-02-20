@@ -60,7 +60,7 @@ Then:
 ---
 
 #  PROJECT STRUCTURE
-
+```
 app/
 ├── layout.js              
 ├── page.js                
@@ -74,7 +74,7 @@ src/
 
 data/
 └── sample_data.json     
-
+```
 ---
 
 #  BASIC LOGIC EXPLANATION
