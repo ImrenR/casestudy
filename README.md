@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## PROJECT TITLE = CASE STUDY
 
-## Getting Started
+This project asked me to able to use responsive Next.js application to display a list of users also filter them by their name also email, and view detailed user profiles
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## STACK 
+This project built with Nextjs React Tailwind and React-Icons
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## STRUCTURE
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+app/
+├── layout.js              
+├── page.js                # Home page (UserList + Header importedhere)
+├── user/
+│   └── [id]/page.js       # Dynamic route for user detail page
+src/
+├── components/
+│   ├── Header.js          # Search input + status filter buttons
+│   └── UserList.js        # Desktop table + mobile cards
+data/
+└── sample_data.json     
+https://casestudy-gold.vercel.app/
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## DESCRIPTION
 
-## Learn More
+**Installing Next.js**
 
-To learn more about Next.js, take a look at the following resources:
+- npx create-next-app@latest .
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I have chosen App Router, JavaScript
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-## Deploy on Vercel
+-  Installing Tailwind
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+npm install -D tailwindcss@3 postcss autoprefixer 
+npx tailwindcss init -p 
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+config files updated according to the folders I am using.
+globals.css has been updated as well
+
+
+- App Router routing
+
+As I chosen App router next js so I was eligible to use folders as routes, this helps as not to create more folders as we do in react without next js
+
+**app/user/[id]/page.js => /user/1**
+
+-  dynamic routing [id]
+ with navigation logic I have directly used Link next js to navigate my pages
+
