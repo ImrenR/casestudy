@@ -53,12 +53,14 @@ const page = ({ params }) => {
             Email:
             <span className="mx-8 font-thin text-gray-600 ">{user.email}</span>
           </p>
-          <p>
+          <div className="w-full mt-2 space-y-1 text-sm text-left">
+          <p className="text-light">
             Phone:
-            <span>
+            <span className="mx-8 font-thin text-gray-600 ">
               {user.phone_number}
             </span>
           </p>
+          </div>
           <p>
             University:
             <span className="mx-3 font-thin text-gray-600">{user.school}</span>
