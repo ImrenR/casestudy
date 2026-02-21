@@ -1,52 +1,36 @@
-'use client'
+"use client";
+
 import Header from "@/components/Header";
 import UserList from "@/components/UserList";
-import data from "@/data/sample_data.json"
+import data from "../data/sample_data.json";
 import { useState } from "react";
 
+export default function Home() {
+  const [search, setSearch] = useState("");
+  const [status, setStatus] = useState("all");
 
-
-export default function Page() {
-
-const [search, setSearch] = useState("")
-const [statusOption, setStatusOption] = useState('All');
-
-
-const filteredData = data.filter(a => {
- if(statusOption === 'active') return a.active ===true;
- if(statusOption === 'inactive') return a.active ===false;
- return true; // all   
-})
-
-.filter(user=>{
-  const fullName =`${user.first_name ||' '}${user.last_name || ''}`.toLowerCase()
-   const email= user.email.toLowerCase();
-const searchText= search.toLowerCase()
-return(
-  fullName.includes(searchText)
- || email.includes(searchText)
-)
-
-})
+  const filteredData = data
+    .filter(item => {
+      if (status === "active") return item.active ;
+      if (status === "inactive") return !item.active ;
+      return true; // for all
+    })
+    .filter(a => {
+      const name = `${a.first_name}${a.last_name}`.toLowerCase();
+      const email = a.email.toLowerCase();
+      const searchText = search.toLowerCase();
+      return name.includes(searchText) || email.includes(searchText);
+    });
 
   return (
-
-    <div className="w-full flex flex-col items-center p-4 gap-4">
-     <div className="w-full max-w-6xl ">
-     
+    <div>
       <Header
-      search={search}
-      setSearch={setSearch}
-      statusOption={statusOption}
-      setStatusOption={setStatusOption}
+        search={search}
+        setSearch={setSearch}
+        status={status}
+        setStatus={setStatus}
       />
-      </div>
-    <div className="w-full max-w-6xl bg-white border rounded-lg shadow-md">
-      
-    
-      <UserList data={filteredData}/> 
-      {/* I have passed the data directly into the userList */}
-    </div>
+      <UserList data={filteredData} />
     </div>
   );
 }

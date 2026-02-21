@@ -1,98 +1,57 @@
-import Link from "next/link";
-import React from "react";
+import Link from 'next/link'
+import React from 'react'
 
-const UserList = ({ data }) => {
+const UserList = ({data}) => {
   return (
     <div >
-        {/* Desktop Table */}
-      <table className="hidden md:table w-full min-w-full bg-white border-collapse shadow-md">
-        <thead>
-          <tr className="text-xs text-gray-400 font-thin">
-            <th className="py-2 px-4 border-b text-left">USERS</th>
-            <th className="py-2 px-4 border-b text-left">EMAIL</th>
-            <th className="py-2 px-4 border-b text-left">PHONE</th>
-            <th className="py-2 px-4 border-b text-left">STATUS</th>
-            <th className="py-2 px-4 border-b text-left"></th>
-          </tr>
-        </thead>
 
-        <tbody>
-          {data.map((users) => (
-            <tr key={users.id}>
-              <td className="py-2 px-4 border-b flex items-center gap-2">
-                <img src={users.avatar} alt={users.first_name} 
-                className=" w-7 rounded-full"
-                
-                />
-                
-               <span className="text-black-200"
-               > {users.first_name+ " "+ users.last_name}</span>
-               
-              </td>
-              <td className="py-2 px-4 border-b text-gray-600">{users.email}</td>
-              <td className="py-2 px-4 border-b text-gray-600">{users.phone_number}</td>
-              <td className="py-2 px-4 border-b">
-                <span className={` py-1 text-sm font-medium rounded-lg border
-                  ${users.active
-                    ? "bg-green-100 text-green-800 border-green-400 px-2"
-                    :"bg-red-100 text-red-800 border-red-400 px-1"
-                  }`}>
-                  {users.active ? "Active" : "Inactive"}
-                </span>
-              </td>
-              <td className="py-2 px-4 border-b">
-                <Link
-                className="border text-sm px-3 my-2 py-1 text-gray-500 rounded-md "
-                href={`/user/${users.id}`}
-                // button has been replaced with Link to navigate details page
-                >View</Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
-
-      {/* Mobile Cards */}
-       <table className="table:auto md:hidden w-full  bg-white border-collapse shadow-md">
-       
-        <tbody>
-          {data.map((users) => (
-            <tr key={users.id}>
-              <td className="py-2 px-4 border-b flex items-center gap-2">
-                <img src={users.avatar} alt={users.first_name} 
-                className=" w-7 rounded-full"
-                
-                />
-                
-               <span className="text-black-200"
-               > {users.first_name+ " "+ users.last_name}</span>
-               
-              </td>
-
-              <td className="py-2 px-4 border-b">
-                <span className={`inline-block w-4 h-4 rounded-full
-                  ${users.active
-                    ? "bg-green-600 "
-                    :"bg-red-600 "
-                  }`}>
-                 
-                </span>
-              </td>
-              <td className="py-2 px-4 border-b">
-                <Link
-                className="border text-sm px-3 my-2 py-1 text-gray-500 rounded-md "
-                href={`/user/${users.id}`}
-                // button has been replaced with Link to navigate details page
-                >View</Link>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-
+    <table className='mt-4 w-full border bg-white rounded-lg'>
+      <thead className="hidden md:table-header-group" >
+        <tr>
+       <th>USER</th>
+       <th>EMAIL</th>
+       <th>PHONE NUMBER</th>
+       <th>STATUS</th>
+       <th></th>
+        </tr>
+      </thead>
+      <tbody>
+       {data.map((item)=> (
+  <tr key={item.id}>
+          <td className='flex flex-row items-center space-x-1 p-2'>
+            <img 
+            className='w-10 h-10 rounded-full '
+            src={item.avatar} alt={item.first_name} />
+            <p>{item.first_name + " "+item.last_name}</p>
+      
+            </td>
+          <td className="hidden md:table-cell">{item.email}</td>
+          <td className="hidden md:table-cell">{item.phone_number}</td>
+          <td>
+            {/* Desktop  */}
+          <span
+           className={`hidden md:inline-block  rounded-md font-medium text-xs py-1 px-3 border ${item.active ? "border-green-500 text-green-800 bg-green-400" : "border-red-500 text-red-800  bg-red-400"}`}
+          >{item.active ? "Active" : "Inactive"}</span>
+          {/* Mobile */}
+            <span
+           className={`inline-block md:hidden w-3 h-3 border rounded-full 
+            ${item.active 
+              ? "bg-green-500 border-green-500" 
+              : "bg-red-500 border-red-500"}`}
+          ></span>
+          </td>
+          <td>
+            <Link href={`/user/${item.id}`}>
+            View
+            </Link>
+          </td>
+        </tr>
+       ))} 
+      
+      </tbody>
+    </table>
     </div>
-  );
-};
+  )
+}
 
-export default UserList;
+export default UserList

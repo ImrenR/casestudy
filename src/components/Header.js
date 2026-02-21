@@ -1,46 +1,52 @@
-import React from 'react'
+import React from "react";
 
-const Header = ({search,setSearch,statusOption,setStatusOption}) => {
-  
-  
+const Header = ({ search, setSearch, status, setStatus }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSearch("");
+  };
 
-  const handleSubmit=(e)=> {
-    e.preventDefault()
-    setSearch("")
-  }
-  
-  
   return (
-    <form onSubmit={handleSubmit}   className="hidden md:flex items-center justify-between ">
-      <input type="text"
-      className='border p-1 rounded-lg'
-      value={search}
-      placeholder='Search for Users...'
-      onChange={(e)=>setSearch(e.target.value)}
+    <form
+      onSubmit={handleSubmit}
+      className="w-full text-center mt-8 md:flex hidden justify-between items-center"
+    >
+      <input
+        className="rounded-md border p-1"
+        placeholder="Search for Users..."
+        type="text"
+        value={search}
+        onChange={(e) => setSearch(e.target.value)}
       />
 
-      <div className='flex gap-2'>
+      <div>
         <button
-        className={`px-3 py-1 rounded ${statusOption === "All" ? "bg-blue-500" : "bg-red-500"}`}
-        onClick={()=>setStatusOption('All')}
-        >All</button>
+          onClick={() => setStatus("all")}
+          className={` ${
+  status === "active" && "bg-blue-400"
+}`}
+        >
+          All
+        </button>
         <button
-        className={`px-3 py-1 rounded 
-          ${statusOption === "active" && "bg-green-500"}`}
-         onClick={()=>setStatusOption('active')}
-        >Active</button>
+          onClick={() => setStatus("active")}
+          className={` ${
+  status === "active" && "bg-green-400" 
+}`}
+        >
+          Active
+        </button>
         <button
-        className={`px-3 py-1 rounded 
-          ${statusOption === "inactive" && "bg-red-500"}`}
-         onClick={()=>setStatusOption('inactive')}
-        >Inactive</button>
+          onClick={() => setStatus("inactive")}
+         className={` ${
+  status === "active" && "bg-red-400" 
+}`}
+        >
+          Inactive
+        </button>
       </div>
     </form>
+  );
+};
 
-
-
-
-  )
-}
-
-export default Header
+export default Header;
