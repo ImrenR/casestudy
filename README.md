@@ -15,7 +15,7 @@ Users can:
 
 The backend API was tested using Postman.
 
-![Postman Check](./postmancheck.png)
+![Postman Check](./PostmanCheck.png)
 
 
 Live Demo:
