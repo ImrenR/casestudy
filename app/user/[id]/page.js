@@ -6,8 +6,9 @@ export default async function UserDetails({ params: promiseParams }) {
   const { id } = await promiseParams; // Await the params Promise
 
   const res = await fetch(`http://localhost:3000/api/users/${id}`);
-  const user = await res.json();
   if (!res.ok) throw new Error("Failed to fetch data");
+  const user = await res.json();
+
 
   return (
     <div className="max-w-md w-full px-3 md:px-0 mx-auto mt-6">
