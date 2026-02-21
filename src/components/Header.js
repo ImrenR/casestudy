@@ -22,25 +22,25 @@ const Header = ({ search, setSearch, status, setStatus }) => {
       <div>
         <button
           onClick={() => setStatus("all")}
-          className={` ${
-  status === "active" && "bg-blue-400"
-}`}
+         className={`transition ${
+      status === "all" ? "bg-blue-400 text-white" : "bg-gray-200"
+    }`}
         >
           All
         </button>
         <button
           onClick={() => setStatus("active")}
-          className={` ${
-  status === "active" && "bg-green-400" 
-}`}
+          className={` transition ${
+      status === "active" ? "bg-green-400 text-white" : "bg-gray-200"
+    }`}
         >
           Active
         </button>
         <button
           onClick={() => setStatus("inactive")}
-         className={` ${
-  status === "active" && "bg-red-400" 
-}`}
+        className={` transition ${
+      status === "inactive" ? "bg-red-400 text-white" : "bg-gray-200"
+    }`}
         >
           Inactive
         </button>
