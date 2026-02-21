@@ -2,21 +2,23 @@ import Link from "next/link";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
 export default async function Page({ params: promiseParams }) {
-  const { id } = await params; // Await the params Promise
+  const { id } = await promiseParams; // Await the params Promise
 
   const res = await fetch(`http://localhost:3000/api/users/${id}`, {
     cache: "no-store", 
   });
 
-  const user= await res.json()
+ 
 
-  if (!user || user.message) {
+  if (!res.ok) {
     return (
       <div className="flex justify-center items-center h-screen">
         <p>User Not Found</p>
       </div>
     );
   }
+  
+   const user= await res.json()
 
   return (
     <div className="max-w-md w-full px-3 md:px-0 mx-auto mt-6">

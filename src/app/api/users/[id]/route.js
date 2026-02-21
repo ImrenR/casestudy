@@ -1,4 +1,4 @@
-import data from "@/data/sample_data.json"
+import data from "../../../../data/sample_data.json"
 
 export async function GET(request, context) {
   const {params}= context;
