@@ -1,9 +1,10 @@
 "use client";
 
-import Header from "@/components/Header";
-import UserList from "@/components/UserList";
+import Header from "../components/Header";
+
 import data from "../data/sample_data.json";
 import { useState } from "react";
+import UserList from "../components/UserList";
 
 export default function Home() {
   const [search, setSearch] = useState("");
@@ -40,7 +41,7 @@ const pageSize=10;
         status={status}
         setStatus={setStatus}
       />
-      <UserList 
+      <UserList
       page={page}
       setPage={setPage}
       totalPages={totalPages}
