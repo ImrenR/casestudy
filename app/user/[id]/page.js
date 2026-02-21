@@ -6,7 +6,7 @@ export default async function UserDetails({ params }) {
   const { id } = await params; 
 
   const res = await fetch(`http://localhost:3000/api/user/${id}`);
-  //!on postman has been checked and image imported in this project file
+  //! on postman has been checked and image imported in this project file
   if (!res.ok) throw new Error("Failed to fetch data");
   const user = await res.json();
 
