@@ -7,7 +7,9 @@ Users can:
 - Search by first name, last name, or email
 - Filter by Active / Inactive status
 - View a detailed profile page for each user
-
+- User data is loaded from a JSON file located inside the project data directory.
+- The JSON data is accessed through a Next.js API route.
+- You can verify the backend functionality using Postman by sending a GET request.
 Live Demo:
 https://casestudy-gold.vercel.app/
 
@@ -16,6 +18,7 @@ https://casestudy-gold.vercel.app/
 #  TECH STACK
 
 - Next.js (App Router)
+- Next. js API route
 - React
 - Tailwind CSS
 - React Icons
@@ -77,52 +80,17 @@ data/
 ```
 ---
 
-#  BASIC LOGIC EXPLANATION
 
-##  Routing Logic (App Router)
+### This page shows :
 
-Because App Router was selected, routing works based on folders.
 
-Example:
+Responsive user list layout
 
-app/page.js                =>  /
-app/user/[id]/page.js      =>  /user/1
+Search functionality
 
----
+Filter by user status (Active / Inactive)
 
-## Dynamic Routing
-
-Folder:
-app/user/[id]/page.js
-
-[id] means this part of the URL is dynamic.
-
-If the user visits:
-
-/user/1
-
-Next.js automatically provides:
-
-params = { id: "1" }
-
-We extract it:
-
-const userId = params.id
-
-Then find the correct user:
-
-const user = data.find(u => u.id === Number(userId)) (URL sends us as string thats why we need to convert it to the integer)
-
-This loads the selected user’s profile.
-
----
-
-# Home Page Logic (app/page.js)
-
-This page:
-- Imports user data
-- Imports Header component
-- Imports UserList component
+Pagination navigation
 
 ### Step 1 — State Management
 
@@ -148,65 +116,20 @@ return true (this means "All")
 fullName.includes(searchText) ||
 email.includes(searchText)
 
-Logic flow:
 
-All Users
-   ↓
-Filter by Status
-   ↓
-Filter by Search
-   ↓
-Display Result
+### Step 3— Pagination Implementation
 
----
+- Pagination is applied after filtering and searching operations.
 
-# Component Logic
+- The user list displays 10 users per page.
 
-## Header Component
+- Navigation buttons (Prev and Next) are used to switch between pages.
 
-Contains:
-- Search input
-- Filter buttons
-
-Receives props:
-
-search
-setSearch
-statusOption
-setStatusOption
-
-It does not contain data.
-It only updates state.
-
----
-
-
-Navigation is handled using:
-
-<Link href={`/user/${user.id}`}>
-
-This enables client-side navigation.
-
----
-
-# RESPONSIVE DESIGN
-
-
-Tailwind responsive utilities used:
-- hidden md:table
-- md:hidden
-
----
+- Pagination state is managed using React state.
 
 
 
-# What I have used in this project ?
 
-- File-based routing
-- Dynamic routing 
-- State management
-- Filtering logic
-- Component reusability
-- Responsive design
-- Clean folder structure
-- Navigation using Next.js Link
+
+
+
