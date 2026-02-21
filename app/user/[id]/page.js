@@ -1,13 +1,11 @@
 import Link from "next/link";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
-export default async function UserDetails({ params: promiseParams }) {
+export default async function UserDetails({ params: promiseParams }) { // params is actually a Promise which get resolved in an id 
   const { id } = await promiseParams; // Await the params Promise
 
-  const res = await fetch(`http://localhost:3000/api/users/${id}`, {
-    cache: "no-store", 
-  });
-
+  const res = await fetch(`http://localhost:3000/api/users/${id}`);
+   const user= await res.json();
  
 
   if (!res.ok) {
@@ -18,7 +16,7 @@ export default async function UserDetails({ params: promiseParams }) {
     );
   }
   
-   const user= await res.json()
+  
 
   return (
     <div className="max-w-md w-full px-3 md:px-0 mx-auto mt-6">
