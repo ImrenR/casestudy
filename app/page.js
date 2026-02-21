@@ -2,7 +2,7 @@
 
 import Header from "../components/Header";
 
-import data from "../data/sample_data.json";
+import data from "../sample_data.json";
 import { useState } from "react";
 import UserList from "./user/page";
 
