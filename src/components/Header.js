@@ -9,21 +9,21 @@ const Header = ({ search, setSearch, status, setStatus }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full text-center mt-8 md:flex justify-between items-center"
+      className="w-full mt-8 flex flex-col md:flex-row md:justify-between md:items-center"
     >
       <input
-        className="rounded-md border p-1"
+        className="w-full md:w-1/3 rounded-md border p-1"
         placeholder="Search for Users..."
         type="text"
         value={search}
         onChange={(e) => setSearch(e.target.value)}
       />
 
-      <div>
+      <div className="flex">
         <button
           onClick={() => setStatus("all")}
          className={`transition ${
-      status === "all" ? "bg-blue-400 text-white" : "bg-gray-200"
+      status === "all" ? "bg-blue-600 text-white" : "bg-gray-200"
     }`}
         >
           All
