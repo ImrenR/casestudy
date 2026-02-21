@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
-export default async function UserDetails({ params: promiseParams }) {
-  // params is actually a Promise which get resolved in an id
-  const { id } = await promiseParams; // Await the params Promise
+export default async function UserDetails({ params }) { 
+ 
+  const { id } = await params; 
 
   const res = await fetch(`http://localhost:3000/api/users/${id}`);
   if (!res.ok) throw new Error("Failed to fetch data");

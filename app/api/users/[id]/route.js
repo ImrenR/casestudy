@@ -1,10 +1,9 @@
 import data from "../../../../data/sample_data.json"
 
-export async function GET(request, context) {
-  const {params}= context;
+export async function GET(request,{params}) { // api route signature
 
-const id= Number((await params).id);
-  const user = data.find(c=> c.id === id);
+const id = Number((await params).id);
+const user = data.find(c=> c.id === id);
 
 
   if(!user) {
