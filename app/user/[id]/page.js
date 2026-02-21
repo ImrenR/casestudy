@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
-export default async function Page({ params: promiseParams }) {
+export default async function UserDetails({ params: promiseParams }) {
   const { id } = await promiseParams; // Await the params Promise
 
   const res = await fetch(`http://localhost:3000/api/users/${id}`, {

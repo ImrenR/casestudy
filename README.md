@@ -74,14 +74,17 @@ Then:
 ```
 app/
 ├── layout.js              
-├── page.js                
+├── page.js     #Home page               
 ├── user/
-│   └── [id]/page.js       
-
-src/
+│   └──page.js.           #UserList  
+│   └── [id]/page.js    #UserDetails  /user/[id]/user1 
+│──── api/
+│    └──users            
+│    └── [id]/route.js
+│
 ├── components/
 │   ├── Header.js          
-│   └── UserList.js        
+│           
 
 data/
 └── sample_data.json     

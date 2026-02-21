@@ -4,7 +4,7 @@ import Header from "../components/Header";
 
 import data from "../data/sample_data.json";
 import { useState } from "react";
-import UserList from "../components/UserList";
+import UserList from "./user/page";
 
 export default function Home() {
   const [search, setSearch] = useState("");

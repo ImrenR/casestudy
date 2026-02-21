@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import React from 'react'
+
 
 const UserList = ({page,setPage,totalPages,paginatedData,total}) => {
    
@@ -62,7 +62,7 @@ const UserList = ({page,setPage,totalPages,paginatedData,total}) => {
       </tbody>
       </table>
 <div className='p-2 border-t-3 border bg-white rounded-md flex justify-between items-center'>
-<span>
+<span className='text-gray-500 text-sm'>
   Showing {(page-1)*10+1} - 
   {Math.min(page*10,total)} of {total}</span>
 <div>

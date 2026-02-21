@@ -1,7 +1,7 @@
 module.exports = {
   content: [
-    "./src/app/**/*.{js,ts,jsx,tsx}",      // src/app içindeki tüm page ve layout
-    "./src/components/**/*.{js,ts,jsx,tsx}" // component klasörün varsa
+    "./app/**/*.{js,ts,jsx,tsx}",      // always check your folders to able to use tailwind
+    "./components/**/*.{js,ts,jsx,tsx}" 
   ],
   theme: {
     extend: {},
