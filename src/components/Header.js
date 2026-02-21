@@ -9,7 +9,7 @@ const Header = ({ search, setSearch, status, setStatus }) => {
   return (
     <form
       onSubmit={handleSubmit}
-      className="w-full text-center mt-8 md:flex hidden justify-between items-center"
+      className="w-full text-center mt-8 md:flex justify-between items-center"
     >
       <input
         className="rounded-md border p-1"

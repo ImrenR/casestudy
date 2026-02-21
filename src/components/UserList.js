@@ -5,7 +5,7 @@ const UserList = ({data}) => {
   return (
     <div >
 
-    <table className='mt-4 w-full border bg-white rounded-lg'>
+    <table className='mt-4 w-full border bg-white rounded-2xl'>
       <thead className="hidden md:table-header-group" >
         <tr>
        <th>USER</th>
@@ -18,30 +18,40 @@ const UserList = ({data}) => {
       <tbody>
        {data.map((item)=> (
   <tr key={item.id}>
-          <td className='flex flex-row items-center space-x-1 p-2'>
+          <td className="w-1/2 p-2 md:w-auto">
+            <div className="flex gap-2 items-center ">
             <img 
             className='w-10 h-10 rounded-full '
             src={item.avatar} alt={item.first_name} />
+            <div className='flex flex-col'>
             <p>{item.first_name + " "+item.last_name}</p>
-      
+            {/* Mobile email */}
+            <span className='text-xs text-gray-500 md:hidden'>{item.email}</span>
+            </div>
+      </div>
             </td>
-          <td className="hidden md:table-cell">{item.email}</td>
-          <td className="hidden md:table-cell">{item.phone_number}</td>
-          <td>
+
+          <td className="hidden md:table-cell text-gray-500">{item.email}</td>
+          <td className="hidden md:table-cell text-gray-500">{item.phone_number}</td>
+          <td className='w-1/4 text-center md:w-auto'>
             {/* Desktop  */}
           <span
-           className={`hidden md:inline-block  rounded-md font-medium text-xs py-1 px-3 border ${item.active ? "border-green-500 text-green-800 bg-green-400" : "border-red-500 text-red-800  bg-red-400"}`}
+           className={`hidden md:inline-block rounded-full font-medium text-[10px] px-3 py-1 
+             ${item.active 
+              ? " text-green-900 bg-green-200" 
+              : " text-red-900  bg-red-100"}`}
           >{item.active ? "Active" : "Inactive"}</span>
           {/* Mobile */}
             <span
            className={`inline-block md:hidden w-3 h-3 border rounded-full 
             ${item.active 
-              ? "bg-green-500 border-green-500" 
-              : "bg-red-500 border-red-500"}`}
+              ? "bg-green-800 border-green-800" 
+              : "bg-red-800 border-red-800"}`}
           ></span>
           </td>
           <td>
-            <Link href={`/user/${item.id}`}>
+            <Link href={`/user/${item.id}`}
+            className='text-xs text-gray-500 border rounded-sm px-3 py-1'>
             View
             </Link>
           </td>
