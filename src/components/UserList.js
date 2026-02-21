@@ -1,7 +1,8 @@
 import Link from 'next/link'
 import React from 'react'
 
-const UserList = ({data}) => {
+const UserList = ({page,setPage,totalPages,paginatedData,total}) => {
+   
   return (
     <div >
 
@@ -16,7 +17,7 @@ const UserList = ({data}) => {
         </tr>
       </thead>
       <tbody>
-       {data.map((item)=> (
+       {paginatedData.map((item)=> (
   <tr key={item.id}>
           <td className="w-1/2 p-2 md:w-auto">
             <div className="flex gap-2 items-center ">
@@ -59,7 +60,26 @@ const UserList = ({data}) => {
        ))} 
       
       </tbody>
-    </table>
+      </table>
+<div className='p-2 border-t-3 border bg-white rounded-md flex justify-between items-center'>
+<span>
+  Showing {(page-1)*10+1} - 
+  {Math.min(page*10,total)} of {total}</span>
+<div>
+  <button
+  onClick={()=> setPage(p=> Math.max(1,p-1))}
+  disabled={page === 1}
+  className='border px-3 py-1 rounded-md hover:bg-blue-500 hover:text-black transition-all disabled:opacity-50 disabled:text-black-200 '
+  >Prev</button>
+  <button
+  onClick={()=> setPage(p=> Math.min(totalPages, p+1))} 
+  disabled={page === totalPages}
+   className="border px-3 py-1 rounded-md hover:bg-blue-500 hover:text-black disabled:opacity-50 disabled:text-black-200 transition-all"
+  >Next</button>
+</div>
+</div>
+
+    
     </div>
   )
 }

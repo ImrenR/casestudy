@@ -8,6 +8,9 @@ import { useState } from "react";
 export default function Home() {
   const [search, setSearch] = useState("");
   const [status, setStatus] = useState("all");
+  const [page, setPage] = useState(1);// this needed to able to use next and prev button on the buttom of the page
+
+const pageSize=10;
 
   const filteredData = data
     .filter(item => {
@@ -22,6 +25,13 @@ export default function Home() {
       return name.includes(searchText) || email.includes(searchText);
     });
 
+
+    //! pagination after filter
+
+  const totalPages =Math.ceil(filteredData.length/pageSize);
+ const paginatedData =filteredData.slice((page-1)*pageSize, page*pageSize)
+// slice => ((1-1)*10), 1*10 => start from 0 end at 10th index
+
   return (
     <div>
       <Header
@@ -30,7 +40,12 @@ export default function Home() {
         status={status}
         setStatus={setStatus}
       />
-      <UserList data={filteredData} />
+      <UserList 
+      page={page}
+      setPage={setPage}
+      totalPages={totalPages}
+      paginatedData={paginatedData}
+      total={filteredData.length} />
     </div>
   );
 }

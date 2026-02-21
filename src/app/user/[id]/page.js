@@ -1,13 +1,16 @@
-import data from "../../../data/sample_data.json";
 import Link from "next/link";
 import { FaLongArrowAltLeft } from "react-icons/fa";
 
 export default async function Page({ params: promiseParams }) {
-  const params = await promiseParams; // Await the params Promise
-  const { id } = params; // Now you can access id
-  const user = data.find((u) => u.id === parseInt(id, 30));
+  const { id } = await params; // Await the params Promise
 
-  if (!user) {
+  const res = await fetch(`http://localhost:3000/api/users/${id}`, {
+    cache: "no-store", 
+  });
+
+  const user= await res.json()
+
+  if (!user || user.message) {
     return (
       <div className="flex justify-center items-center h-screen">
         <p>User Not Found</p>
@@ -28,20 +31,19 @@ export default async function Page({ params: promiseParams }) {
 
       <div className="w-full border rounded-xl shadow-md p-4 bg-white sm:p-6 space-y-4 ">
         <div className="flex flex-col items-center text-center space-y-2 ">
-        
-            <img
-              src={user.avatar}
-              alt={user.first_name}
-              className="rounded-full w-24 h-24 md:w-28 md:h-28"
-            />
-            <div>
+          <img
+            src={user.avatar}
+            alt={user.first_name}
+            className="rounded-full w-24 h-24 md:w-28 md:h-28"
+          />
+          <div>
             <h2 className="text-lg font-semibold text-center">
               {user.first_name} {user.last_name}
             </h2>
             <p className="text-sm font-bold text-gray-500 text-center">
               {user.title}
             </p>
-        </div>
+          </div>
           <span
             className={`text-xs font-medium rounded-lg  m-2 transition
                   ${
@@ -52,58 +54,52 @@ export default async function Page({ params: promiseParams }) {
           >
             {user.active ? "Active" : "Inactive"}
           </span>
-           </div>
-          <hr className="w-full border-gray-200 my-2 shadow-sm" />
-  
+        </div>
+        <hr className="w-full border-gray-200 my-2 shadow-sm" />
+
         <div className="space-y-3 text-sm">
+          {/* Email */}
+          <div className="grid grid-cols-2 items-center">
+            <span className="font-semibold">Email:</span>
+            <span className="text-gray-500 break-all">{user.email}</span>
+          </div>
 
-  {/* Email */}
-  <div className="grid grid-cols-2 items-center">
-    <span className="font-semibold">Email:</span>
-    <span className="text-gray-500 break-all">{user.email}</span>
-  </div>
+          {/* Phone */}
+          <div className="grid grid-cols-2 items-center">
+            <span className="font-semibold">Phone:</span>
+            <span className="text-gray-500">{user.phone_number}</span>
+          </div>
 
-  {/* Phone */}
-  <div className="grid grid-cols-2 items-center">
-    <span className="font-semibold">Phone:</span>
-    <span className="text-gray-500">{user.phone_number}</span>
-  </div>
+          {/* University */}
+          <div className="grid grid-cols-2  items-center">
+            <span className="font-semibold">University:</span>
+            <span className="text-gray-500 ">{user.school}</span>
+          </div>
 
-  {/* University */}
-  <div className="grid grid-cols-2  items-center">
-    <span className="font-semibold">University:</span>
-    <span className="text-gray-500 ">
-      {user.school}
-    </span>
-  </div>
+          {/* Skills */}
+          <div className="md:col-span-2 space-y-2">
+            <span className="font-semibold">Skills:</span>
 
-  {/* Skills */}
-  <div className="md:col-span-2 space-y-2">
-    <span className="font-semibold">Skills:</span>
+            <div className="flex flex-wrap gap-2">
+              <span className="text-[10px] border rounded-md w-20 px-1 py-0.5 bg-gray-100 hover:bg-blue-200 hover:text-blue-400 text-center">
+                {user.main_skill.slice(0, 6)}..
+              </span>
 
-    <div className="flex flex-wrap gap-2">
-      <span className="text-[10px] border rounded-md w-20 px-1 py-0.5 bg-gray-100 hover:bg-blue-200 hover:text-blue-400 text-center">
-        {user.main_skill.slice(0, 6)}..
-      </span>
-
-      {user.secondary_skills.map((skill, index) => (
-        <span
-          key={index}
-          className="text-[10px] border rounded-md w-20 px-1 py-0.5 bg-gray-100 hover:bg-blue-200 hover:text-blue-400 text-center"
-        >
-          {skill}
-        </span>
-      ))}
+              {user.secondary_skills.map((skill, index) => (
+                <span
+                  key={index}
+                  className="text-[10px] border rounded-md w-20 px-1 py-0.5 bg-gray-100 hover:bg-blue-200 hover:text-blue-400 text-center"
+                >
+                  {skill}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+        <div className="border text-sm text-center font-light text-gray-500 bg-gray-100 rounded-lg mt-4 w-full p-3 italic">
+          <p>"{user.description}"</p>
+        </div>
+      </div>
     </div>
-  </div>
-
-</div>
-          <div className="border text-sm text-center font-light text-gray-500 bg-gray-100 rounded-lg mt-4 w-full p-3 italic">
-        <p>"{user.description}"</p>
-      </div>
-      </div>
-      </div>
-      
- 
   );
 }
