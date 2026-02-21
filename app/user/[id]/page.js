@@ -78,7 +78,7 @@ export default async function UserDetails({ params }) {
                 {user.main_skill.slice(0, 6)}..
               </span>
 
-              {user.secondary_skills.map((skill, index) => (
+              {user.secondary_skills?.map((skill, index) => (
                 <span
                   key={index}
                   className="text-[10px] border rounded-md w-20 px-1 py-0.5 bg-gray-100 hover:bg-blue-200 hover:text-blue-400 text-center"
