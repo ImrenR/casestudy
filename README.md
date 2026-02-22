@@ -15,6 +15,7 @@ Users can:
 **Vercel ->** https://challenge-smoky.vercel.app/ 
 
 **Demo to watch->**
+
 ![Desktop Demo](./public/desktop.gif)
 
 ![Mobile Demo](./public/mobile.gif)
