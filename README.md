@@ -79,7 +79,7 @@ app/
 │   └──page.js.           #UserList  
 │   └── [id]/page.js    #UserDetails  /user/[id]/user1 
 │──── api/
-│    └──users            
+│    └──user            
 │    └── [id]/route.js
 │
 ├── components/
