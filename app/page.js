@@ -3,7 +3,7 @@
 import Header from "../components/Header";
 
 import data from "../sample_data.json";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import UserList from "../components/UserList";
 
 export default function Home() {
@@ -20,12 +20,15 @@ const pageSize=10;
       return true; // for all
     })
     .filter(a => {
-      const name = `${a.first_name}${a.last_name}`.toLowerCase();
+      const name = `${a.first_name} ${a.last_name}`.toLowerCase();
       const email = a.email.toLowerCase();
       const searchText = search.toLowerCase();
       return name.includes(searchText) || email.includes(searchText);
     });
 
+    useEffect(() => {
+  setPage(1);
+}, [search, status]); // when we filter by email/fullname then reset the page back to ->1
 
     //! pagination after filter
 

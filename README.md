@@ -9,8 +9,15 @@ Users can:
 - User data is loaded from a JSON file located inside the project data directory.
 - The JSON data is accessed through a Next.js API route.
 - You can verify the backend functionality using Postman by sending a GET request.
+---
 
 
+**Vercel ->** https://challenge-smoky.vercel.app/ 
+
+**Demo to watch->**
+![Desktop Demo](./desktop.gif)
+
+![Mobile Demo](./mobile.gif)
 
 ---
 
@@ -67,15 +74,15 @@ app/
 ├── layout.js              
 ├── page.js               #Home page               
 ├── user/
-│   └──page.js.           #UserList  
-│   └── [id]/page.js      #UserDetails  /user/anything
+│    └── [id]/page.js     #UserDetails  /         
+│   
 │──── api/
 │    └──user            
 │    └── [id]/route.js     
 │
 ├── components/
 │   ├── Header.js          
-│           
+│   ├── UserList.js      
 └── sample_data.json     
 ```
 ---
