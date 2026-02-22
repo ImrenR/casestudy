@@ -30,7 +30,7 @@ const pageSize=10;
     //! pagination after filter
 
   const totalPages =Math.ceil(filteredData.length/pageSize);
- const paginatedData =filteredData.slice((page-1)*pageSize, page*pageSize) || [];
+ const paginatedData =filteredData.slice((page-1)*pageSize, page*pageSize) ;
 // slice => ((1-1)*10), 1*10 => start from 0 end at 10th index
 
   return (

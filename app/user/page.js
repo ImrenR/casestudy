@@ -17,7 +17,7 @@ const UserList = ({page,setPage,totalPages,paginatedData,total}) => {
         </tr>
       </thead>
       <tbody>
-       {paginatedData?.map((item)=> (
+       {paginatedData.map((item)=> (
   <tr key={item.id}>
           <td className="w-1/2 p-2 md:w-auto">
             <div className="flex gap-2 items-center ">
