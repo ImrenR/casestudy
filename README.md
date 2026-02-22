@@ -1,5 +1,4 @@
-#  PROJECT TITLE  
-##  Case Study
+ ##  Project
 
 This project is a responsive Next.js application that displays a list of users.  
 Users can:
@@ -11,15 +10,7 @@ Users can:
 - The JSON data is accessed through a Next.js API route.
 - You can verify the backend functionality using Postman by sending a GET request.
 
-## Backend API Test
 
-The backend API was tested using Postman.
-
-![Postman Check](./PostmanCheck.png)
-
-
-Live Demo:
-https://casestudy-gold.vercel.app/
 
 ---
 
@@ -74,19 +65,17 @@ Then:
 ```
 app/
 ├── layout.js              
-├── page.js     #Home page               
+├── page.js               #Home page               
 ├── user/
 │   └──page.js.           #UserList  
-│   └── [id]/page.js    #UserDetails  /user/[id]/user1 
+│   └── [id]/page.js      #UserDetails  /user/anything
 │──── api/
 │    └──user            
-│    └── [id]/route.js
+│    └── [id]/route.js     
 │
 ├── components/
 │   ├── Header.js          
 │           
-
-data/
 └── sample_data.json     
 ```
 ---
@@ -103,7 +92,7 @@ Filter by user status (Active / Inactive)
 
 Pagination navigation
 
-### Step 1 — State Management
+### State Management
 
 const [search, setSearch] = useState("")
 const [statusOption, setStatusOption] = useState("All")
@@ -114,7 +103,7 @@ These states control:
 
 ---
 
-### Step 2 — Filtering Logic
+###  Filtering Logic
 
 First filter by status:
 
@@ -128,7 +117,7 @@ fullName.includes(searchText) ||
 email.includes(searchText)
 
 
-### Step 3— Pagination Implementation
+###  Pagination Implementation
 
 - Pagination is applied after filtering and searching operations.
 
