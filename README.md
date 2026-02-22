@@ -9,10 +9,8 @@ Users can:
 - User data is loaded from a JSON file located inside the project data directory.
 - The JSON data is accessed through a Next.js API route.
 - You can verify the backend functionality using Postman by sending a GET request.
+
 ---
-
-
-**Vercel ->** https://challenge-smoky.vercel.app/ 
 
 **Demo to watch->**
 
